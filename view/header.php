@@ -7,11 +7,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="assets/js/function.js"></script>
+    <link rel="stylesheet" href="assets/css/style.css">
+
 </head>
 
 <body>
     <!-- HEADER -->
-    <header class="bg-black">
+    <header class="bg-black sticky top-0 z-10">
         <div class="flex container mx-auto text-white items-center justify-between">
             <div>
                 <a href="#">
@@ -19,38 +23,27 @@
                 </a>
             </div>
             <div>
-                <form action="">
-                    <input type="text" placeholder="Tìm kiếm sản phẩm" />
-                    <button class="bg-[363636]" type="submit">Search</button>
+                <form action="index.php?act=product" method="POST">
+                    <input class="px-2 py-1 rounded-sm" type="text" name="kyw" placeholder="Tìm kiếm sản phẩm" />
+                    <button class="bg-[#00FF02] text-black py-1 px-2 rounded-sm" type="submit">Search</button>
                 </form>
             </div>
             <ul class="flex">
-                <li class="px-4 hover:text-[#35FC26]">
+                <li class="px-4 py-6 hover:text-[#35FC26]">
                     <a href="#">LINH KIỆN PC</a>
                 </li>
-                <li class="px-4 hover:text-[#35FC26]"><a href="#">MÀN HÌNH</a></li>
-                <li class="px-4 hover:text-[#35FC26]"><a href="#">GAMING GEAR</a></li>
-                <li class="px-4 hover:text-[#35FC26]"><a href="#">BÀN GHẾ</a></li>
-                <li class="px-4 hover:text-[#35FC26]"><a href="#">TÀI KHOẢN</a></li>
-                <li class="px-4 hover:text-[#35FC26]"><a href="#">GIỎ HÀNG</a></li>
+                <li class="px-4 py-6 hover:text-[#35FC26]"><a href="#">MÀN HÌNH</a></li>
+                <li class="px-4 py-6 hover:text-[#35FC26]"><a href="#">GAMING GEAR</a></li>
+                <li class="px-4 py-6 hover:text-[#35FC26]"><a href="#">BÀN GHẾ</a></li>
+                <li id="login_menu" class="px-4 py-6 hover:text-[#35FC26] relative">
+                    <a href="#">TÀI KHOẢN</a>
+                    <ul id="account" class="hidden bg-white absolute z-20 top-[70px] shadow-md w-[200px]">
+                        <li class="px-3 py-2 text-black hover:text-[#A11917]"><a href="index.php?act=signin">ĐĂNG NHẬP</a></li>
+                        <hr>
+                        <li class="px-3 py-2 text-black hover:text-[#A11917]"><a href="index.php?act=signup">ĐĂNG KÝ</a></li>
+                    </ul>
+                </li>
+                <li class="px-4 py-6 hover:text-[#35FC26]"><a href="#">GIỎ HÀNG</a></li>
             </ul>
         </div>
     </header>
-    <!-- BANNER -->
-    <div class="container mx-auto">
-        <div class="flex">
-            <img class="w-3/5" src="https://theme.hstatic.net/1000037809/1000944346/14/banner_slider_5_large.jpg?v=49" alt="" />
-
-            <div class="w-2/5 flex-col space-y-10">
-                <div class="flex items-center">
-                    <div class="bg-red-500 py-3 px-6 text-white">REVIEW</div>
-                    <marquee class="text-2xl font-bold" direction="left">Review các sản phẩm công nghệ</marquee>
-                </div>
-                <img class="w-full" src="https://theme.hstatic.net/1000037809/1000944346/14/smallbanner_img1.jpg?v=49" alt="" />
-                <img class="w-full" src="https://theme.hstatic.net/1000037809/1000944346/14/smallbanner_img2.jpg?v=49" alt="" />
-            </div>
-        </div>
-        <div>
-            <img class="w-full" src="https://theme.hstatic.net/1000037809/1000944346/14/home_banner_img.jpg?v=49" alt="" />
-        </div>
-    </div>
