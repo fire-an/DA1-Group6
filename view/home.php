@@ -1,377 +1,66 @@
+<div class="container mx-auto mt-5">
+    <div class="flex justify-between">
+        <div class="wrapper w-3/5 relative">
+            <div class="carousel">
+                <div class="inner">
+                    <div class="slide active">
+
+                    </div>
+                    <div class="slide">
+
+                    </div>
+                    <div class="slide">
+
+                    </div>
+                </div>
+                <div class="arrow arrow-left"></div>
+                <div class="arrow arrow-right"></div>
+            </div>
+
+        </div>
+
+        <div class="w-2/5 flex-col space-y-[82px]">
+            <div class="flex items-center">
+                <div class="bg-red-500 py-3 px-6 text-white">REVIEW</div>
+                <marquee class="text-2xl font-bold" direction="left">Review các sản phẩm công nghệ</marquee>
+            </div>
+            <img class="w-full" src="https://theme.hstatic.net/1000037809/1000944346/14/smallbanner_img1.jpg?v=49" alt="" />
+            <img class="w-full" src="https://theme.hstatic.net/1000037809/1000944346/14/smallbanner_img2.jpg?v=49" alt="" />
+        </div>
+    </div>
+    <div class="mt-3">
+        <img class="w-full" src="https://theme.hstatic.net/1000037809/1000944346/14/home_banner_img.jpg?v=49" alt="" />
+    </div>
+</div>
 <section class="container mx-auto mt-4">
     <div class="flex bg-black item-center py-2 px-3 justify-between">
-        <div class="text-[#35FC26] text-2xl font-semibold">SẢN PHẨM BÁN CHẠY</div>
+        <div class="text-[#35FC26] text-2xl font-semibold">SẢN PHẨM MỚI</div>
         <a class="text-white hover:text-[#35FC26]" href="#">Xem tất cả ></a>
     </div>
     <div class="grid grid-cols-5">
-        <a href="#">
-            <div class="border-2 px-6 py-6">
-                <div class="relative">
-                    <div class="absolute bg-[#A11917] text-white px-2 py-1">-12%</div>
-                    <div class="absolute bg-[#A11917] text-white px-2 py-1 right-0">
-                        HẾT
-                    </div>
-                    <img class="mx-auto" src="https://product.hstatic.net/1000037809/product/logitech_g102_lightsync_rgb_black_5ad3c72931ec44a7a27926cb45547be8_medium.png" alt="" />
+        <?php
+        foreach ($p_new as $p) {
+            extract($p);
+            $p_link = "index.php?act=product_detail&pid=" . $pid;
+            $c_link = "index.php?act=product&cid=" . $cid;
+            echo
+            '<div class="border border-2 p-5">
+                <div class="h-[400px]">
+                    <a class="text-[#3494e0] text-lg font-bold" href="' . $p_link . '">' . $pname . '<img src="' . $image . '" alt=""></a>
                 </div>
-                <p>Chuột chơi game có dây Logitech G102</p>
-                <div class="flex justify-between">
-                    <p class="text-[#a11917] font-bold text-xl">513.000đ</p>
-                    <p class="text-gray-500 text-xl line-through">590.000đ</p>
-                </div>
-
-            </div>
-        </a>
-        <a href="#">
-            <div class="border-2 px-6 py-6">
-                <div class="relative">
-                    <div class="absolute bg-[#A11917] text-white px-2 py-1">-12%</div>
-                    <div class="absolute bg-[#A11917] text-white px-2 py-1 right-0">
-                        HẾT
-                    </div>
-                    <img class="mx-auto" src="https://product.hstatic.net/1000037809/product/logitech_g102_lightsync_rgb_black_5ad3c72931ec44a7a27926cb45547be8_medium.png" alt="" />
-                </div>
-                <p>Chuột chơi game có dây Logitech G102</p>
-                <div class="flex justify-between">
-                    <p class="text-[#a11917] font-bold text-xl">513.000đ</p>
-                    <p class="text-gray-500 text-xl line-through">590.000đ</p>
-                </div>
-
-            </div>
-        </a>
-        <a href="#">
-            <div class="border-2 px-6 py-6">
-                <div class="relative">
-                    <div class="absolute bg-[#A11917] text-white px-2 py-1">-12%</div>
-                    <div class="absolute bg-[#A11917] text-white px-2 py-1 right-0">
-                        HẾT
-                    </div>
-                    <img class="mx-auto" src="https://product.hstatic.net/1000037809/product/logitech_g102_lightsync_rgb_black_5ad3c72931ec44a7a27926cb45547be8_medium.png" alt="" />
-                </div>
-                <p>Chuột chơi game có dây Logitech G102</p>
-                <div class="flex justify-between">
-                    <p class="text-[#a11917] font-bold text-xl">513.000đ</p>
-                    <p class="text-gray-500 text-xl line-through">590.000đ</p>
-                </div>
-
-            </div>
-        </a>
-        <a href="#">
-            <div class="border-2 px-6 py-6">
-                <div class="relative">
-                    <div class="absolute bg-[#A11917] text-white px-2 py-1">-12%</div>
-                    <div class="absolute bg-[#A11917] text-white px-2 py-1 right-0">
-                        HẾT
-                    </div>
-                    <img class="mx-auto" src="https://product.hstatic.net/1000037809/product/logitech_g102_lightsync_rgb_black_5ad3c72931ec44a7a27926cb45547be8_medium.png" alt="" />
-                </div>
-                <p>Chuột chơi game có dây Logitech G102</p>
-                <div class="flex justify-between">
-                    <p class="text-[#a11917] font-bold text-xl">513.000đ</p>
-                    <p class="text-gray-500 text-xl line-through">590.000đ</p>
-                </div>
-
-            </div>
-        </a>
-        <a href="#">
-            <div class="border-2 px-6 py-6">
-                <div class="relative">
-                    <div class="absolute bg-[#A11917] text-white px-2 py-1">-12%</div>
-                    <div class="absolute bg-[#A11917] text-white px-2 py-1 right-0">
-                        HẾT
-                    </div>
-                    <img class="mx-auto" src="https://product.hstatic.net/1000037809/product/logitech_g102_lightsync_rgb_black_5ad3c72931ec44a7a27926cb45547be8_medium.png" alt="" />
-                </div>
-                <p>Chuột chơi game có dây Logitech G102</p>
-                <div class="flex justify-between">
-                    <p class="text-[#a11917] font-bold text-xl">513.000đ</p>
-                    <p class="text-gray-500 text-xl line-through">590.000đ</p>
-                </div>
-
-            </div>
-        </a>
+                <p class="text-red-600 font-semibold">' . $price . '</p>
+                <a href="' . $c_link . '">' . $cname . '</a>
+                <form action="index.php?act=addtocart" method="post">
+                    <input type="hidden" name="id" value="' . $pid . '">
+                    <input type="hidden" name="name" value="' . $pname . '">
+                    <input type="hidden" name="img" value="' . $image . '">
+                    <input type="hidden" name="price" value="' . $price . '">
+                    <button class="bg-[#653332] text-white w-full py-3 mt-3"><input type="submit" name="addtocart" value="Thêm vào giỏ hàng"></button>
+                </form>
+            </div>';
+        }
+        ?>
 
 
 
-</section>
-<section class="container mx-auto mt-4">
-    <div class="flex bg-black item-center py-2 px-3 justify-between">
-        <div class="text-[#35FC26] text-2xl font-semibold">SẢN PHẨM BÁN CHẠY</div>
-        <a class="text-white hover:text-[#35FC26]" href="#">Xem tất cả ></a>
-    </div>
-    <div class="grid grid-cols-5">
-        <a href="#">
-            <div class="border-2 px-6 py-6 hover:border-[#A11917]">
-                <div class="relative">
-                    <div class="absolute bg-[#A11917] text-white px-2 py-1">-12%</div>
-                    <div class="absolute bg-[#A11917] text-white px-2 py-1 right-0">
-                        HẾT
-                    </div>
-                    <img class="mx-auto" src="https://product.hstatic.net/1000037809/product/logitech_g102_lightsync_rgb_black_5ad3c72931ec44a7a27926cb45547be8_medium.png" alt="" />
-                </div>
-                <p>Chuột chơi game có dây Logitech G102</p>
-                <div class="flex justify-between">
-                    <p class="text-[#a11917] font-bold text-xl">513.000đ</p>
-                    <p class="text-gray-500 text-xl line-through">590.000đ</p>
-                </div>
-
-            </div>
-        </a>
-        <a href="#">
-            <div class="border-2 px-6 py-6">
-                <div class="relative">
-                    <div class="absolute bg-[#A11917] text-white px-2 py-1">-12%</div>
-                    <div class="absolute bg-[#A11917] text-white px-2 py-1 right-0">
-                        HẾT
-                    </div>
-                    <img class="mx-auto" src="https://product.hstatic.net/1000037809/product/logitech_g102_lightsync_rgb_black_5ad3c72931ec44a7a27926cb45547be8_medium.png" alt="" />
-                </div>
-                <p>Chuột chơi game có dây Logitech G102</p>
-                <div class="flex justify-between">
-                    <p class="text-[#a11917] font-bold text-xl">513.000đ</p>
-                    <p class="text-gray-500 text-xl line-through">590.000đ</p>
-                </div>
-
-            </div>
-        </a>
-        <a href="#">
-            <div class="border-2 px-6 py-6">
-                <div class="relative">
-                    <div class="absolute bg-[#A11917] text-white px-2 py-1">-12%</div>
-                    <div class="absolute bg-[#A11917] text-white px-2 py-1 right-0">
-                        HẾT
-                    </div>
-                    <img class="mx-auto" src="https://product.hstatic.net/1000037809/product/logitech_g102_lightsync_rgb_black_5ad3c72931ec44a7a27926cb45547be8_medium.png" alt="" />
-                </div>
-                <p>Chuột chơi game có dây Logitech G102</p>
-                <div class="flex justify-between">
-                    <p class="text-[#a11917] font-bold text-xl">513.000đ</p>
-                    <p class="text-gray-500 text-xl line-through">590.000đ</p>
-                </div>
-
-            </div>
-        </a>
-        <a href="#">
-            <div class="border-2 px-6 py-6">
-                <div class="relative">
-                    <div class="absolute bg-[#A11917] text-white px-2 py-1">-12%</div>
-                    <div class="absolute bg-[#A11917] text-white px-2 py-1 right-0">
-                        HẾT
-                    </div>
-                    <img class="mx-auto" src="https://product.hstatic.net/1000037809/product/logitech_g102_lightsync_rgb_black_5ad3c72931ec44a7a27926cb45547be8_medium.png" alt="" />
-                </div>
-                <p>Chuột chơi game có dây Logitech G102</p>
-                <div class="flex justify-between">
-                    <p class="text-[#a11917] font-bold text-xl">513.000đ</p>
-                    <p class="text-gray-500 text-xl line-through">590.000đ</p>
-                </div>
-
-            </div>
-        </a>
-        <a href="#">
-            <div class="border-2 px-6 py-6">
-                <div class="relative">
-                    <div class="absolute bg-[#A11917] text-white px-2 py-1">-12%</div>
-                    <div class="absolute bg-[#A11917] text-white px-2 py-1 right-0">
-                        HẾT
-                    </div>
-                    <img class="mx-auto" src="https://product.hstatic.net/1000037809/product/logitech_g102_lightsync_rgb_black_5ad3c72931ec44a7a27926cb45547be8_medium.png" alt="" />
-                </div>
-                <p>Chuột chơi game có dây Logitech G102</p>
-                <div class="flex justify-between">
-                    <p class="text-[#a11917] font-bold text-xl">513.000đ</p>
-                    <p class="text-gray-500 text-xl line-through">590.000đ</p>
-                </div>
-
-            </div>
-        </a>
-
-
-
-</section>
-<section class="container mx-auto mt-4">
-    <div class="flex bg-black item-center py-2 px-3 justify-between">
-        <div class="text-[#35FC26] text-2xl font-semibold">SẢN PHẨM BÁN CHẠY</div>
-        <a class="text-white hover:text-[#35FC26]" href="#">Xem tất cả ></a>
-    </div>
-    <div class="grid grid-cols-5">
-        <a href="#">
-            <div class="border-2 px-6 py-6">
-                <div class="relative">
-                    <div class="absolute bg-[#A11917] text-white px-2 py-1">-12%</div>
-                    <div class="absolute bg-[#A11917] text-white px-2 py-1 right-0">
-                        HẾT
-                    </div>
-                    <img class="mx-auto" src="https://product.hstatic.net/1000037809/product/logitech_g102_lightsync_rgb_black_5ad3c72931ec44a7a27926cb45547be8_medium.png" alt="" />
-                </div>
-                <p>Chuột chơi game có dây Logitech G102</p>
-                <div class="flex justify-between">
-                    <p class="text-[#a11917] font-bold text-xl">513.000đ</p>
-                    <p class="text-gray-500 text-xl line-through">590.000đ</p>
-                </div>
-
-            </div>
-        </a>
-        <a href="#">
-            <div class="border-2 px-6 py-6">
-                <div class="relative">
-                    <div class="absolute bg-[#A11917] text-white px-2 py-1">-12%</div>
-                    <div class="absolute bg-[#A11917] text-white px-2 py-1 right-0">
-                        HẾT
-                    </div>
-                    <img class="mx-auto" src="https://product.hstatic.net/1000037809/product/logitech_g102_lightsync_rgb_black_5ad3c72931ec44a7a27926cb45547be8_medium.png" alt="" />
-                </div>
-                <p>Chuột chơi game có dây Logitech G102</p>
-                <div class="flex justify-between">
-                    <p class="text-[#a11917] font-bold text-xl">513.000đ</p>
-                    <p class="text-gray-500 text-xl line-through">590.000đ</p>
-                </div>
-
-            </div>
-        </a>
-        <a href="#">
-            <div class="border-2 px-6 py-6">
-                <div class="relative">
-                    <div class="absolute bg-[#A11917] text-white px-2 py-1">-12%</div>
-                    <div class="absolute bg-[#A11917] text-white px-2 py-1 right-0">
-                        HẾT
-                    </div>
-                    <img class="mx-auto" src="https://product.hstatic.net/1000037809/product/logitech_g102_lightsync_rgb_black_5ad3c72931ec44a7a27926cb45547be8_medium.png" alt="" />
-                </div>
-                <p>Chuột chơi game có dây Logitech G102</p>
-                <div class="flex justify-between">
-                    <p class="text-[#a11917] font-bold text-xl">513.000đ</p>
-                    <p class="text-gray-500 text-xl line-through">590.000đ</p>
-                </div>
-
-            </div>
-        </a>
-        <a href="#">
-            <div class="border-2 px-6 py-6">
-                <div class="relative">
-                    <div class="absolute bg-[#A11917] text-white px-2 py-1">-12%</div>
-                    <div class="absolute bg-[#A11917] text-white px-2 py-1 right-0">
-                        HẾT
-                    </div>
-                    <img class="mx-auto" src="https://product.hstatic.net/1000037809/product/logitech_g102_lightsync_rgb_black_5ad3c72931ec44a7a27926cb45547be8_medium.png" alt="" />
-                </div>
-                <p>Chuột chơi game có dây Logitech G102</p>
-                <div class="flex justify-between">
-                    <p class="text-[#a11917] font-bold text-xl">513.000đ</p>
-                    <p class="text-gray-500 text-xl line-through">590.000đ</p>
-                </div>
-
-            </div>
-        </a>
-        <a href="#">
-            <div class="border-2 px-6 py-6">
-                <div class="relative">
-                    <div class="absolute bg-[#A11917] text-white px-2 py-1">-12%</div>
-                    <div class="absolute bg-[#A11917] text-white px-2 py-1 right-0">
-                        HẾT
-                    </div>
-                    <img class="mx-auto" src="https://product.hstatic.net/1000037809/product/logitech_g102_lightsync_rgb_black_5ad3c72931ec44a7a27926cb45547be8_medium.png" alt="" />
-                </div>
-                <p>Chuột chơi game có dây Logitech G102</p>
-                <div class="flex justify-between">
-                    <p class="text-[#a11917] font-bold text-xl">513.000đ</p>
-                    <p class="text-gray-500 text-xl line-through">590.000đ</p>
-                </div>
-
-            </div>
-        </a>
-
-
-
-</section>
-<section class="container mx-auto mt-4">
-    <div class="flex bg-black item-center py-2 px-3 justify-between">
-        <div class="text-[#35FC26] text-2xl font-semibold">SẢN PHẨM BÁN CHẠY</div>
-        <a class="text-white hover:text-[#35FC26]" href="#">Xem tất cả ></a>
-    </div>
-    <div class="grid grid-cols-5">
-        <a href="#">
-            <div class="border-2 px-6 py-6">
-                <div class="relative">
-                    <div class="absolute bg-[#A11917] text-white px-2 py-1">-12%</div>
-                    <div class="absolute bg-[#A11917] text-white px-2 py-1 right-0">
-                        HẾT
-                    </div>
-                    <img class="mx-auto" src="https://product.hstatic.net/1000037809/product/logitech_g102_lightsync_rgb_black_5ad3c72931ec44a7a27926cb45547be8_medium.png" alt="" />
-                </div>
-                <p>Chuột chơi game có dây Logitech G102</p>
-                <div class="flex justify-between">
-                    <p class="text-[#a11917] font-bold text-xl">513.000đ</p>
-                    <p class="text-gray-500 text-xl line-through">590.000đ</p>
-                </div>
-
-            </div>
-        </a>
-        <a href="#">
-            <div class="border-2 px-6 py-6">
-                <div class="relative">
-                    <div class="absolute bg-[#A11917] text-white px-2 py-1">-12%</div>
-                    <div class="absolute bg-[#A11917] text-white px-2 py-1 right-0">
-                        HẾT
-                    </div>
-                    <img class="mx-auto" src="https://product.hstatic.net/1000037809/product/logitech_g102_lightsync_rgb_black_5ad3c72931ec44a7a27926cb45547be8_medium.png" alt="" />
-                </div>
-                <p>Chuột chơi game có dây Logitech G102</p>
-                <div class="flex justify-between">
-                    <p class="text-[#a11917] font-bold text-xl">513.000đ</p>
-                    <p class="text-gray-500 text-xl line-through">590.000đ</p>
-                </div>
-
-            </div>
-        </a>
-        <a href="#">
-            <div class="border-2 px-6 py-6">
-                <div class="relative">
-                    <div class="absolute bg-[#A11917] text-white px-2 py-1">-12%</div>
-                    <div class="absolute bg-[#A11917] text-white px-2 py-1 right-0">
-                        HẾT
-                    </div>
-                    <img class="mx-auto" src="https://product.hstatic.net/1000037809/product/logitech_g102_lightsync_rgb_black_5ad3c72931ec44a7a27926cb45547be8_medium.png" alt="" />
-                </div>
-                <p>Chuột chơi game có dây Logitech G102</p>
-                <div class="flex justify-between">
-                    <p class="text-[#a11917] font-bold text-xl">513.000đ</p>
-                    <p class="text-gray-500 text-xl line-through">590.000đ</p>
-                </div>
-
-            </div>
-        </a>
-        <a href="#">
-            <div class="border-2 px-6 py-6">
-                <div class="relative">
-                    <div class="absolute bg-[#A11917] text-white px-2 py-1">-12%</div>
-                    <div class="absolute bg-[#A11917] text-white px-2 py-1 right-0">
-                        HẾT
-                    </div>
-                    <img class="mx-auto" src="https://product.hstatic.net/1000037809/product/logitech_g102_lightsync_rgb_black_5ad3c72931ec44a7a27926cb45547be8_medium.png" alt="" />
-                </div>
-                <p>Chuột chơi game có dây Logitech G102</p>
-                <div class="flex justify-between">
-                    <p class="text-[#a11917] font-bold text-xl">513.000đ</p>
-                    <p class="text-gray-500 text-xl line-through">590.000đ</p>
-                </div>
-
-            </div>
-        </a>
-        <a href="#">
-            <div class="border-2 px-6 py-6">
-                <div class="relative">
-                    <div class="absolute bg-[#A11917] text-white px-2 py-1">-12%</div>
-                    <div class="absolute bg-[#A11917] text-white px-2 py-1 right-0">
-                        HẾT
-                    </div>
-                    <img class="mx-auto" src="https://product.hstatic.net/1000037809/product/logitech_g102_lightsync_rgb_black_5ad3c72931ec44a7a27926cb45547be8_medium.png" alt="" />
-                </div>
-                <p>Chuột chơi game có dây Logitech G102</p>
-                <div class="flex justify-between">
-                    <p class="text-[#a11917] font-bold text-xl">513.000đ</p>
-                    <p class="text-gray-500 text-xl line-through">590.000đ</p>
-                </div>
-
-            </div>
-        </a>
 </section>

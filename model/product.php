@@ -12,17 +12,17 @@ function delete_product($id)
 }
 function load_all_product($kyw, $cid)
 {
-    $sql = "SELECT * FROM sanpham WHERE 1";
+    $sql = "SELECT * FROM product INNER JOIN category ON product.cid = category.cid WHERE 1";
     if ($kyw != "") {
-        $sql .= " and name like '%" . $kyw . "%'";
+        $sql .= " and pname like '%" . $kyw . "%'";
     }
 
     if ($cid > 0) {
         $sql .= " and cid='" . $cid . "'";
     }
-    $sql .= " ORDER BY id desc";
-    $listsanpham = pdo_query($sql);
-    return $listsanpham;
+    $sql .= " ORDER BY pid desc";
+    $p_list = pdo_query($sql);
+    return $p_list;
 }
 
 function load_new_product_home()
@@ -34,9 +34,9 @@ function load_new_product_home()
 
 
 
-function load_one_product($id)
+function load_one_product($pid)
 {
-    $sql = "SELECT * FROM product WHERE pid=" . $id;
+    $sql = "SELECT * FROM product INNER JOIN category ON product.cid = category.cid WHERE pid=" . $pid;
     $product = pdo_query_one($sql);
     return $product;
 }
@@ -78,27 +78,46 @@ function load_category_name($cid)
     }
 }
 
-// function load_danh_muc($iddm)
+// function load_products_price_down_500()
 // {
-//     switch ($iddm) {
-//         case 12:
-//             $dm = 'Bánh sinh nhật';
-//             break;
-//         case 13:
-//             $dm = 'Bánh tươi';
-//             break;
-//         case 14:
-//             $dm = 'Bánh ngọt';
-//             break;
-//         case 15:
-//             $dm = 'Bánh quy khô';
-//             break;
-//         case 16:
-//             $dm = 'Bánh miếng nhỏ';
-//             break;
-//         default:
-//             $dm = '';
-//             break;
-//     }
-//     return $dm;
+//     $sql = "SELECT * FROM product INNER JOIN category ON product.cid = category.cid WHERE price BETWEEN 0 AND 500000";
+//     $sql .= " ORDER BY pid desc";
+//     $p_list = pdo_query($sql);
+//     return $p_list;
 // }
+
+// function load_products_price_between_500_800()
+// {
+//     $sql = "SELECT * FROM product INNER JOIN category ON product.cid = category.cid WHERE price BETWEEN 500000 AND 800000";
+//     $sql .= " ORDER BY pid desc";
+//     $p_list = pdo_query($sql);
+//     return $p_list;
+// }
+// function load_products_price_between_800_1000()
+// {
+//     $sql = "SELECT * FROM product INNER JOIN category ON product.cid = category.cid WHERE price BETWEEN 800000 AND 1000000";
+//     $sql .= " ORDER BY pid desc";
+//     $p_list = pdo_query($sql);
+//     return $p_list;
+// }
+// function load_products_price_between_1000_2000()
+// {
+//     $sql = "SELECT * FROM product INNER JOIN category ON product.cid = category.cid WHERE price BETWEEN 1000000 AND 2000000";
+//     $sql .= " ORDER BY pid desc";
+//     $p_list = pdo_query($sql);
+//     return $p_list;
+// }
+// function load_products_price_up_2000()
+// {
+//     $sql = "SELECT * FROM product INNER JOIN category ON product.cid = category.cid WHERE price > 2000000";
+//     $sql .= " ORDER BY pid desc";
+//     $p_list = pdo_query($sql);
+//     return $p_list;
+// }
+
+function load_all_products_home()
+{
+    $sql = "SELECT * FROM product INNER JOIN category ON product.cid = category.cid WHERE 1 ORDER BY pid desc limit 0,9";
+    $p_list = pdo_query($sql);
+    return $p_list;
+}

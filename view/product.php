@@ -6,6 +6,7 @@
                 <hr class="my-3" />
                 <h3 class="text-lg font-semibold">TÌM KIẾM THEO DANH MỤC</h3>
                 <ul>
+
                     <li><a href="">Danh mục 1</a></li>
                     <li><a href="">Danh mục 2</a></li>
                     <li><a href="">Danh mục 3</a></li>
@@ -15,11 +16,11 @@
                 <hr class="my-3" />
                 <h3 class="text-lg font-semibold">TÌM KIẾM THEO KHOẢNG GIÁ</h3>
                 <ul>
-                    <li><a href="">Dưới 500.000đ</a></li>
-                    <li><a href="">Từ 500.000đ - 800.000đ</a></li>
-                    <li><a href="">Từ 800.000đ - 1.000.000đ</a></li>
-                    <li><a href="">Từ 1.000.000đ - 2.000.000đ</a></li>
-                    <li><a href="">Trên 2.000.000</a></li>
+                    <li><a href="index.php?act=price_down_500">Dưới 500.000đ</a></li>
+                    <li><a href="index.php?act=price_500_800">Từ 500.000đ - 800.000đ</a></li>
+                    <li><a href="index.php?act=price_800_1000">Từ 800.000đ - 1.000.000đ</a></li>
+                    <li><a href="index.php?act=price_1000_2000">Từ 1.000.000đ - 2.000.000đ</a></li>
+                    <li><a href="index.php?act=price_up_2000">Trên 2.000.000</a></li>
                 </ul>
                 <hr class="my-3" />
                 <h3 class="text-lg font-semibold">TÌM KIẾM THEO TÊN HÃNG</h3>
@@ -34,7 +35,7 @@
         </div>
 
         <div class="col-span-3">
-            <h3 class="text-xl font-bold mb-5">KẾT QUẢ TÌM KIẾM</h3>
+            <h3 class="text-xl font-bold mb-5">KẾT QUẢ TÌM KIẾM VỚI TỪ KHÓA <? echo $_POST['kyw'] ?></h3>
             <div class="grid grid-cols-3">
                 <!-- <a href="#">
                     <div class="border-2 px-6 py-6">
@@ -91,21 +92,21 @@
                     </div>
                 </a> -->
                 <?php
-                foreach ($dssp as $sp) {
-                    extract($sp);
-                    $p_link = "index.php?act=sanphamct&idsp=" . $id;
-                    $c_link = "index.php?act=sanpham&iddm=" . $iddm;
-                    $hinh = $img_path . $img;
+                foreach ($p_list as $p) {
+                    extract($p);
+                    $p_link = "index.php?act=product_detail&pid=" . $pid;
+                    $c_link = "index.php?act=product&cid=" . $cid;
+                    // $hinh = $img_path . $img;
                     // $dm = load_danh_muc($iddm);
                     echo
                     '<div class="border border-2 p-5">
-                <a class="text-[#3494e0] text-lg font-bold" href="' . $linksp . '">' . $name . '<img src="' . $hinh . '" alt=""></a>
+                <a class="text-[#3494e0] text-lg font-bold" href="' . $p_link . '"><div class="h-[120px]">' . $pname . '</div><img src="' . $image . '" alt=""></a>
                 <p class="text-red-600 font-semibold">' . $price . '</p>
-                <a href="' . $linkdm . '">' . $dm . '</a>
+                <a href="' . $c_link . '">' . $cname . '</a>
                 <form action="index.php?act=addtocart" method="post">
-                    <input type="hidden" name="id" value="' . $id . '">
-                    <input type="hidden" name="name" value="' . $name . '">
-                    <input type="hidden" name="img" value="' . $img . '">
+                    <input type="hidden" name="id" value="' . $pid . '">
+                    <input type="hidden" name="name" value="' . $pname . '">
+                    <input type="hidden" name="img" value="' . $image . '">
                     <input type="hidden" name="price" value="' . $price . '">
                     <button class="bg-[#653332] text-white w-full py-3 mt-3"><input type="submit" name="addtocart" value="Thêm vào giỏ hàng"></button>
                 </form>
