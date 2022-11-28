@@ -1,7 +1,9 @@
 <?php
-var_dump($_SESSION['cart']);
+print_r($_SESSION['cart']);
+
+
 ?>
-<div class="mx-auto">
+<div class="mx-auto container mb-[50px]">
     <h2 class="my-3 text-[28px] font-bold">CHI TIẾT ĐƠN HÀNG</h2>
     <table class="table-auto border border-collapse">
 

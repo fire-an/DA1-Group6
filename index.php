@@ -6,13 +6,14 @@ include "model/pdo.php";
 include "model/user.php";
 include "model/cart.php";
 include "model/category.php";
-include "global.php";
+
 
 if (!isset($_SESSION['cart'])) {
     $_SESSION['cart'] = [];
 }
 
 $p_new = load_all_products_home();
+$c_list = load_all_category();
 
 if (isset($_GET['act']) && ($_GET['act'] != "")) {
     $act = $_GET['act'];
@@ -24,7 +25,6 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
                 $pid = $_GET['pid'];
                 $product = load_one_product($pid);
                 extract($product);
-
                 include "view/product_detail.php";
             }
 
@@ -70,28 +70,13 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
                 $cid = 0;
             }
             $p_list = load_all_product($kyw, $cid);
-            $tendm = load_category_name($cid);
             include "view/product.php";
             break;
-            // case 'price_500_800':
-            //     $p_list = load_products_price_between_500_800();
-            //     include "view/product.php";
-            // case 'price_800_1000':
-            //     $p_list = load_products_price_between_800_1000();
-
-            // case 'price_1000_2000':
-            //     $p_list = load_products_price_between_1000_2000();
-
-            // case 'price_up_2000':
-            //     $p_list = load_products_price_up_2000();
-
         case 'product_detail':
             if (isset($_GET['pid']) && ($_GET['pid'] > 0)) {
                 $pid = $_GET['pid'];
                 $product = load_one_product($pid);
                 extract($product);
-
-
                 include "view/product_detail.php";
             } else {
                 include "view/home.php";
@@ -103,10 +88,12 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
                 $pname = $_POST['pname'];
                 $image = $_POST['image'];
                 $price = $_POST['price'];
+
                 $quantity = $_POST['quantity'];
                 $tprice = $quantity * $price;
                 $p_add = [$pid, $pname, $image, $price, $quantity, $tprice];
                 array_push($_SESSION['cart'], $p_add);
+                
                 // $_SESSION['cart'];
             }
             include "view/cart/viewcart.php";

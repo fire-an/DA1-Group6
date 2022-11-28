@@ -45,9 +45,7 @@
             $c_link = "index.php?act=product&cid=" . $cid;
             echo
             '<div class="border border-2 p-5">
-                <div class="h-[400px]">
-                    <a class="text-[#3494e0] text-lg font-bold" href="' . $p_link . '">' . $pname . '<img src="' . $image . '" alt=""></a>
-                </div>
+                <a class="text-[#3494e0] text-lg font-bold" href="' . $p_link . '"><div class="h-[120px]">' . $pname . '</div><img src="' . $image . '" alt=""></a>
                 <p class="text-red-600 font-semibold">' . $price . '</p>
                 <a href="' . $c_link . '">' . $cname . '</a>
                 <form action="index.php?act=addtocart" method="post">
@@ -55,7 +53,7 @@
                     <input type="hidden" name="name" value="' . $pname . '">
                     <input type="hidden" name="img" value="' . $image . '">
                     <input type="hidden" name="price" value="' . $price . '">
-                    <button class="bg-[#653332] text-white w-full py-3 mt-3"><input type="submit" name="addtocart" value="Thêm vào giỏ hàng"></button>
+                    
                 </form>
             </div>';
         }

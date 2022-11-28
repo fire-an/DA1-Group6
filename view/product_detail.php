@@ -6,14 +6,14 @@
        <div class="">
            <div class="">
                <div class="">
-                   <a href="#" title="Quay trở về trang chủ">Trang chủ</a>
+                   <a href="index.php" title="Quay trở về trang chủ">Trang chủ</a>
 
                    <span aria-hidden="true">/</span>
 
-                   <a href="#" title=""><?= $cname ?></a>
+                   <a href="index.php?act=sanpham&cid=<?= $cid ?>" title=""><?= $cname ?></a>
 
                    <span aria-hidden="true">/</span>
-                   <span><?= $pname ?></span>
+                   <span class="font-bold"><?= $pname ?></span>
                </div>
            </div>
        </div>
@@ -53,7 +53,7 @@
                    <span style="color: #00ff00">G</span>
                    <span style="color: #0000ff">B</span> <br />
                </p>
-               <p>Giá sản phẩm: <?= $price ?></p>
+               <p>Giá sản phẩm: <?= $price ?> VND</p>
                <!-- <p>Giá KM: <b style="color: #ff1900">400,000₫</b></p> -->
                <form action="index.php?act=addtocart" method="post">
                    <div class="soluong">

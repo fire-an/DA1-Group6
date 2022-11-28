@@ -12,7 +12,7 @@ function delete_product($id)
 }
 function load_all_product($kyw, $cid)
 {
-    $sql = "SELECT * FROM product INNER JOIN category ON product.cid = category.cid WHERE 1";
+    $sql = "SELECT * FROM product WHERE 1";
     if ($kyw != "") {
         $sql .= " and pname like '%" . $kyw . "%'";
     }
@@ -31,6 +31,7 @@ function load_new_product_home()
     $listproduct = pdo_query($sql);
     return $listproduct;
 }
+
 
 
 

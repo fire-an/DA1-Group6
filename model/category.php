@@ -14,9 +14,10 @@ function delete_category($id)
 function load_all_category()
 {
     $sql = "SELECT * FROM category ORDER BY cid desc";
-    $list_category = pdo_execute($sql);
-    return $list_category;
+    $listdanhmuc = pdo_query($sql);
+    return $listdanhmuc;
 }
+
 
 function load_one_category($id)
 {
