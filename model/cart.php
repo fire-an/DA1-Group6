@@ -24,27 +24,29 @@ function viewcart($del)
         </tr>
         </thead>
     ';
-
-    foreach ($_SESSION['cart'] as $cart) {
-        $ttien = $cart[3] * $cart[4];
-        $sum += $ttien;
-        if ($del == 1) {
-            $xoasp_td = '<td class="text-center text-red-500 border p-2"><a href="index.php?act=delcart&idcart=' . $i . '"><input type="button" value="Xóa"></a></td>';
-        } else {
-            $xoasp_td = '';
+    if (isset($_SESSION['cart']) && $_SESSION['cart']) {
+        foreach ($_SESSION['cart'] as $cart) {
+            $ttien = $cart[3] * $cart[4];
+            $sum += $ttien;
+            if ($del == 1) {
+                $xoasp_td = '<td class="text-center text-red-500 border p-2"><a href="index.php?act=delcart&idcart=' . $i . '"><input type="button" value="Xóa"></a></td>';
+            } else {
+                $xoasp_td = '';
+            }
+            echo
+            '
+                <tr>
+                    <td class="border p-2"><img class="w-10" src="' . $cart[2] . '"></td>
+                    <td class="border p-2">' . $cart[1] . '</td>
+                    <td class="border p-2">' . $cart[3] . '</td>
+                    <td class="border p-2">' . $cart[4] . '</td>
+                    <td class="border p-2">' . $ttien . '</td>
+                    ' . $xoasp_td . '
+                </tr>';
+            $i += 1;
         }
-        echo
-        '
-            <tr>
-                <td class="border p-2"><img class="w-10" src="' . $cart[2] . '"></td>
-                <td class="border p-2">' . $cart[1] . '</td>
-                <td class="border p-2">' . $cart[3] . '</td>
-                <td class="border p-2">' . $cart[4] . '</td>
-                <td class="border p-2">' . $ttien . '</td>
-                ' . $xoasp_td . '
-            </tr>';
-        $i += 1;
     }
+
     echo
     '
             <tr>
@@ -73,15 +75,15 @@ function bill_chi_tiet($listbill)
 
     foreach ($listbill as $cart) {
         $hinh = $img_path . $cart['img'];
-        $tong += $cart['thanhtien'];
+        $tong += $cart['total'];
         echo
         '
             <tr>
                 <td class="border p-2"><img class="w-10" src="' . $hinh . '" height="80px"></td>
                 <td class="border p-2">' . $cart['name'] . '</td>
                 <td class="border p-2">' . $cart['price'] . '</td>
-                <td class="border p-2">' . $cart['soluong'] . '</td>
-                <td class="border p-2">' . $cart['thanhtien'] . '</td>
+                <td class="border p-2">' . $cart['quantity'] . '</td>
+                <td class="border p-2">' . $cart['total'] . '</td>
             </tr>';
         $i += 1;
     }
@@ -104,27 +106,27 @@ function tongdonhang()
     return $tong;
 }
 
-function insert_bill($iduser, $name, $email, $address, $tel, $pttt, $ngaydathang, $tongdonhang)
+function insert_bill($uid, $name, $email, $address, $tel, $pttt, $ngaydathang, $tongdonhang)
 {
-    $sql = "INSERT INTO bill(iduser,bill_name,bill_email,bill_address,bill_tel,bill_pttt,ngaydathang,total) VALUES('$iduser','$name', '$email', '$address', '$tel', '$pttt', '$ngaydathang', '$tongdonhang')";
+    $sql = "INSERT INTO bill(uid,bname,b_email,b_address,b_phone,b_payment_method,b_date,b_total_price) VALUES('$uid','$name', '$email', '$address', '$tel', '$pttt', '$ngaydathang', '$tongdonhang')";
     return pdo_execute_return_lastInsertID($sql);
 }
 
-function insert_cart($iduser, $idpro, $img, $name, $price, $soluong, $thanhtien, $idbill)
+function insert_cart($uid, $idpro, $img, $name, $price, $soluong, $thanhtien, $idbill)
 {
-    $sql = "INSERT INTO cart(iduser,idpro,img,name,price,soluong,thanhtien,idbill) VALUES('$iduser', '$idpro', '$img', '$name', '$price', '$soluong', '$thanhtien', '$idbill')";
+    $sql = "INSERT INTO shopcart(uid,pid,img,name,price,quantity,total,bid) VALUES('$uid', '$idpro', '$img', '$name', '$price', '$soluong', '$thanhtien', '$idbill')";
     return pdo_execute($sql);
 }
 function loadOne_bill($id)
 {
-    $sql = "SELECT * FROM bill WHERE id=" . $id;
+    $sql = "SELECT * FROM bill WHERE bid=" . $id;
     $bill = pdo_query_one($sql);
     return $bill;
 }
 
 function loadAll_cart($idbill)
 {
-    $sql = "SELECT * FROM cart WHERE idbill=" . $idbill;
+    $sql = "SELECT * FROM shopcart WHERE bid=" . $idbill;
     $bill = pdo_query($sql);
     return $bill;
 }

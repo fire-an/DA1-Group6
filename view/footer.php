@@ -1,4 +1,4 @@
-<footer class="container mx-auto mt-5 mb-2">
+<footer class="container mx-auto mt-[100px] mb-2">
     <div class="grid grid-cols-4 gap-8">
         <div>
             <h3 class="font-bold text-xl">THÔNG TIN LIÊN HỆ</h3>

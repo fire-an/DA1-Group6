@@ -1,6 +1,8 @@
    <!-- Showcase -->
    <?php
     extract($product);
+
+    $name = $pname;
     ?>
    <div class="breadcrumb-content container mx-auto mt-10">
        <div class="">
@@ -22,20 +24,20 @@
        <div class="grid grid-cols-3 gap-10">
            <div class="product-gallery ">
                <div class="product-image">
-                   <img class="active w-[400px]" src="<?= $image ?>" />
+                   <img class="active w-[400px]" src="assets/uploads/<?= $image ?>" />
                </div>
                <ul class="image-list grid grid-cols-4">
                    <li class="image-item">
-                       <img src="<?= $image ?>" />
+                       <img src="assets/uploads/<?= $image ?>" />
                    </li>
                    <li class="image-item">
-                       <img src="<?= $image ?>" />
+                       <img src="assets/uploads/<?= $image_2 ?>" />
                    </li>
                    <li class="image-item">
-                       <img src="<?= $image ?>" />
+                       <img src="assets/uploads/<?= $image_3 ?>" />
                    </li>
                    <li class="image-item">
-                       <img src="<?= $image ?>" />
+                       <img src="assets/uploads/<?= $image_4 ?>" />
                    </li>
                    <!-- <li class="image-item">
                        <img src="https://resource.logitechg.com/w_692,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/gaming/en/products/g203/g203-gallery-5.png?v=1" />
@@ -53,7 +55,7 @@
                    <span style="color: #00ff00">G</span>
                    <span style="color: #0000ff">B</span> <br />
                </p>
-               <p>Giá sản phẩm: <?= $price ?> VND</p>
+               <p class="font-bold">Giá sản phẩm: <span class="font-bold text-xl text-[#D0011B]"><?= $price ?> VND</span></p>
                <!-- <p>Giá KM: <b style="color: #ff1900">400,000₫</b></p> -->
                <form action="index.php?act=addtocart" method="post">
                    <div class="soluong">
@@ -73,7 +75,7 @@
                            </div>
 
                            <input type="hidden" name="pid" value=<?= $pid ?>>
-                           <input type="hidden" name="pname" value=<?= $pname ?>>
+                           <input type="hidden" name="pname" value="<?= $pname ?>">
                            <input type="hidden" name="price" value=<?= $price ?>>
                            <input type="hidden" name="image" value=<?= $image ?>>
                            <button class="mt-5"><input name="addtocart" type="submit" value="Thêm vào giỏ hàng"></button>
@@ -82,6 +84,10 @@
                    </div>
                </form>
            </div>
+       </div>
+       <div class="mt-5">
+           <h3 class="font-bold text-lg">Mô tả sản phẩm</h3>
+           <p><?= $description ?></p>
        </div>
    </section>
    <!-- <article class="container">

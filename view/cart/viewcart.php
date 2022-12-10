@@ -1,9 +1,9 @@
 <?php
-print_r($_SESSION['cart']);
+
 
 
 ?>
-<div class="mx-auto container mb-[50px]">
+<div class="mx-auto container mb-[50px] mb-[200px]">
     <h2 class="my-3 text-[28px] font-bold">CHI TIẾT ĐƠN HÀNG</h2>
     <table class="table-auto border border-collapse">
 
