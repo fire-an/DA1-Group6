@@ -10,7 +10,9 @@
                     foreach ($c_list as $category) {
                         extract($category);
                         $c_link = "index.php?act=product&cid=" . $cid;
-                        echo '<li class=""><a href="' . $c_link . '">' . $cname . '</a></li>';
+                        if ($cid != 6) {
+                            echo '<li class=""><a href="' . $c_link . '">' . $cname . '</a></li>';
+                        }
                     }
 
                     ?>
@@ -26,19 +28,19 @@
                     <li><a href="index.php?act=price_up_2000">Trên 2.000.000</a></li>
                 </ul>
                 <hr class="my-3" />
-                <h3 class="text-lg font-semibold">TÌM KIẾM THEO TÊN HÃNG</h3>
+                <!-- <h3 class="text-lg font-semibold">TÌM KIẾM THEO TÊN HÃNG</h3>
                 <ul>
                     <li><a href="">ASUS</a></li>
                     <li><a href="">APPLE</a></li>
                     <li><a href="">LOGITECH</a></li>
                     <li><a href="">SAMSUNG</a></li>
                     <li><a href="">NVIDIA</a></li>
-                </ul>
+                </ul> -->
             </div>
         </div>
 
         <div class="col-span-3">
-            <h3 class="text-xl font-bold mb-5">KẾT QUẢ TÌM KIẾM VỚI TỪ KHÓA <? echo $_POST['kyw'] ?></h3>
+            <h3 class="text-xl font-bold mb-5">KẾT QUẢ TÌM KIẾM</h3>
             <div class="grid grid-cols-3">
                 <?php
                 foreach ($p_list as $p) {
@@ -48,7 +50,7 @@
                         $c_link = "index.php?act=product&cid=" . $cid;
                         echo
                         '<div class="border border-2 p-5">
-                <a class="text-[#3494e0] text-lg font-bold" href="' . $p_link . '"><div class="h-[120px]">' . $pname . '</div><img src="' . $image . '" alt=""></a>
+                <a class="text-[#3494e0] text-lg font-bold" href="' . $p_link . '"><div class="h-[120px]">' . $pname . '</div><img src=assets/uploads/' . $image . ' alt=""></a>
                 <p class="text-red-600 font-semibold">' . $price . '</p>
                 <a href="' . $c_link . '">' . $cname . '</a>
                 <form action="index.php?act=addtocart" method="post">

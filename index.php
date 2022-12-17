@@ -30,34 +30,37 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
 
             break;
         case 'signup':
-            if (isset($_POST['dangky']) && ($_POST['dangky'])) {
-                $user = $_POST['user'];
-                $pass = $_POST['pass'];
-                $email = $_POST['email'];
-                insert_user($user, $pass, $email);
-                $thongbao = "Đăng ký thành công. Vui lòng đăng nhập";
-            }
-            include "view/account/signup.php";
+            header('Location:signup.php');
             break;
         case 'signin':
             header('Location:login.php');
-            if (isset($_POST['signin']) && ($_POST['signin'])) {
-                $user = $_POST['username'];
-                $pass = $_POST['password'];
-                $checkuser = check_user($user, $pass);
-                if (is_array($checkuser)) {
-                    $_SESSION['user'] = $checkuser;
-                    //$thongbao = "Đăng nhập thành công";
-                    header('Location:index.php');
-                } else {
-                    $thongbao = "Tài khoản không tồn tại";
-                }
-            }
-            include "view/account/signin.php";
             break;
         case 'logout':
             session_unset();
             header('Location:index.php');
+            break;
+        case 'profile':
+            include "view/account/detail.php";
+            break;
+        case 'edit_user':
+            if (isset($_POST['update_account']) && ($_POST['update_account'])) {
+                $username = $_POST['username'];
+                $password = $_POST['password'];
+                $email = $_POST['email'];
+                $address = $_POST['address'];
+                $phone = $_POST['phone'];
+                $uid = $_POST['uid'];
+                $age = $_POST['age'];
+                $real_name = $_POST['real_name'];
+                update_user($uid, $username, $password, $email, $address, $phone, $real_name, $age);
+                $_SESSION['user'] = check_user($username, $password);
+                header('Location:index.php?act=edit_user');
+            }
+            include "view/account/detail.php";
+            break;
+        case 'view_bill':
+            $bills = load_bill_user($uid);
+            include "view/account/bill.php";
             break;
         case 'product':
             if (isset($_POST['kyw']) && ($_POST['kyw'] != "")) {
@@ -115,6 +118,7 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
             break;
         case 'bill':
             include "view/cart/bill.php";
+
             break;
         case 'billconfirm':
             if (isset($_POST['dongydathang']) && ($_POST['dongydathang'])) {

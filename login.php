@@ -40,9 +40,6 @@ include "model/user.php";
                     <p for="password" class="font-bold mb-3 text-20">Mật khẩu</p>
                     <input type="password" name="password" class="px-2 w-full rounded-md mb-3 h-10 bg-lightgray" /><br />
                     <div class="flex justify-between items-center mb-5">
-                        <div class="">
-                            <input class="mr-2" type="checkbox" />Nhớ mật khẩu
-                        </div>
                         <div>
                             <span class=""><a href="#">Quên mật khẩu?</a></span>
                         </div>
@@ -52,7 +49,7 @@ include "model/user.php";
                         <input class="text-white" type="submit" name="signin" value="Đăng nhập">
                     </button>
                     <p>
-                        Chưa đăng ký? <a class="text-primary" href="#">Tạo tài khoản</a>
+                        Chưa đăng ký? <a class="text-primary hover:text-[#00FF02]" href="signup.php">Tạo tài khoản</a>
                     </p>
                     <?php
 
@@ -67,14 +64,18 @@ include "model/user.php";
         $user = $_POST['username'];
         $pass = $_POST['password'];
         $checkuser = check_user($user, $pass);
-        if (is_array($checkuser)) {
+        extract($checkuser);
+        if (is_array($checkuser) && $role == 1) {
             //$thongbao = "Đăng nhập thành công";
             session_start();
             $_SESSION['user'] = $checkuser;
+            header('Location:admin/index.php');
+        } else if (is_array($checkuser) && $role == 0) {
+            session_start();
+            $_SESSION['user'] = $checkuser;
             header('Location:index.php');
-        } else {
-            $thongbao = "Tài khoản không tồn tại";
         }
+        $thongbao = "Tài khoản không tồn tại";
     }
     ?>
 </body>

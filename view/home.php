@@ -45,7 +45,7 @@
             $c_link = "index.php?act=product&cid=" . $cid;
             echo
             '<div class="border border-2 p-5">
-                <a class="text-[#3494e0] text-lg font-bold" href="' . $p_link . '"><div class="h-[120px]">' . $pname . '</div><img src="' . $image . '" alt=""></a>
+                <a class="text-[#3494e0] text-lg font-bold" href="' . $p_link . '"><div class="h-[120px]">' . $pname . '</div><img class="w-[250px] h-[250px]" src="assets/uploads/' . $image . '" alt=""></a>
                 <p class="text-red-600 font-semibold">' . $price . '</p>
                 <a href="' . $c_link . '">' . $cname . '</a>
                 <form action="index.php?act=addtocart" method="post">

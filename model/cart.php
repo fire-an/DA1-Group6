@@ -124,6 +124,13 @@ function loadOne_bill($id)
     return $bill;
 }
 
+function load_bill_user($uid)
+{
+    $sql = "SELECT * FROM bill WHERE uid=" . $uid;
+    $bill_list = pdo_query($sql);
+    return $bill_list;
+}
+
 function loadAll_cart($idbill)
 {
     $sql = "SELECT * FROM shopcart WHERE bid=" . $idbill;
@@ -136,6 +143,13 @@ function loadAll_cart_count($idbill)
     $sql = "SELECT * FROM cart WHERE idbill=" . $idbill;
     $bill = pdo_query($sql);
     return sizeof($bill);
+}
+
+function load_products_cart($bid)
+{
+    $sql = "SELECT * FROM shopcart WHERE bid=" . $bid;
+    $products = pdo_query($sql);
+    return $products;
 }
 
 function loadAll_bill($kyw = "", $iduser = 0)
@@ -166,6 +180,12 @@ function get_ttdh($n)
             break;
         case '3':
             $tt = 'Đã giao hàng';
+            break;
+        case '4':
+            $tt = 'Đã hoàn thành';
+            break;
+        case '5':
+            $tt = 'Đã hủy đơn';
             break;
         default:
             $tt = 'Đơn hàng mới';

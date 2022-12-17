@@ -36,11 +36,11 @@ include "model/user.php";
                 </h2>
                 <form action="" method="POST">
                     <p for="email" class="font-bold mb-3 text-20">Tài khoản</p>
-                    <input class="mb-3 px-2 w-full rounded-md h-10 bg-lightgray" name="username" type="text" /><br />
+                    <input class="border mb-3 px-2 w-full rounded-md h-10 bg-lightgray" name="username" type="text" /><br />
                     <p for="password" class="font-bold mb-3 text-20">Mật khẩu</p>
-                    <input type="password" name="password" class="px-2 w-full rounded-md mb-3 h-10 bg-lightgray" /><br />
+                    <input type="password" name="password" class="border px-2 w-full rounded-md mb-3 h-10 bg-lightgray" /><br />
                     <p for="email" class="font-bold mb-3 text-20">Email</p>
-                    <input type="email" name="email" placeholder="name@company.com" class="px-2 w-full rounded-md mb-3 h-10 bg-lightgray" /><br />
+                    <input type="email" name="email" placeholder="name@company.com" class="border px-2 w-full rounded-md mb-3 h-10 bg-lightgray" /><br />
                     <!-- <div class="flex justify-between items-center mb-5">
                         <div class="">
                             <input class="mr-2" type="checkbox" />Nhớ mật khẩu

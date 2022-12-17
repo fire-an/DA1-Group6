@@ -9,7 +9,6 @@
     // } else {
     //     $hinh = "<p>Chưa có hình ảnh đại diện</p>";
     // }
-    var_dump($detailBill);
     ?>
     <form action="index.php?act=updatebill" method="POST" enctype="multipart/form-data">
         <h2>Cập nhật Đơn hàng</h2>
@@ -17,12 +16,14 @@
             <p>Tình trạng đơn hàng:</p>
             <select name="statusProduct" id="">
                 <option value="89" hidden>Chọn trạng thái sản phẩm</option>
-                <option value="0" <?= $detailBill['b_status']==0 ? "selected" : "" ?> >Đơn hàng mới</option>
-                <option value="1" <?= $detailBill['b_status']==1 ? "selected" : "" ?>  >Đang xử lý</option>
-                <option value="2" <?= $detailBill['b_status']==2 ? "selected" : "" ?>  >Đang giao hàng</option>
-                <option value="3" <?= $detailBill['b_status']==3 ? "selected" : "" ?>  >Đã giao hàng</option>
+                <option value="0" <?= $detailBill['b_status'] == 0 ? "selected" : "" ?>>Đơn hàng mới</option>
+                <option value="1" <?= $detailBill['b_status'] == 1 ? "selected" : "" ?>>Đang xử lý</option>
+                <option value="2" <?= $detailBill['b_status'] == 2 ? "selected" : "" ?>>Đang giao hàng</option>
+                <option value="3" <?= $detailBill['b_status'] == 3 ? "selected" : "" ?>>Đã giao hàng</option>
+                <option value="4" <?= $detailBill['b_status'] == 4 ? "selected" : "" ?>>Đã hoàn thành</option>
+                <option value="5" <?= $detailBill['b_status'] == 5 ? "selected" : "" ?>>Đã hủy dơn</option>
             </select>
-            <input type="hidden" name="bid" value="<?=$detailBill['bid']?>">
+            <input type="hidden" name="bid" value="<?= $detailBill['bid'] ?>">
         </div>
 
         <div class="btn-add">

@@ -19,15 +19,15 @@ function check_email($email)
     return $sp;
 }
 
-function update_taikhoan($id, $user, $pass, $email, $address, $tel)
+function update_user($uid, $username, $password, $email, $address, $phone, $real_name, $age)
 {
-    $sql = "UPDATE taikhoan SET user='" . $user . "', pass='" . $pass . "',email='" . $email . "',tel='" . $tel . "',address='" . $address . "' WHERE id=" . $id;
+    $sql = "UPDATE user SET username='" . $username . "', password='" . $password . "',email='" . $email . "',phone='" . $phone . "',address='" . $address . "', real_name='" . $real_name . "', age='" . $age . "' WHERE uid=" . $uid;
     pdo_execute($sql);
 }
 
 function load_all_user()
 {
-    $sql = "SELECT * FROM user ORDER BY id desc";
+    $sql = "SELECT * FROM user ORDER BY uid desc";
     $listuser = pdo_query($sql);
     return $listuser;
 }

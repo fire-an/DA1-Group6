@@ -65,6 +65,8 @@
                                     <ul>
                                         <li class="px-3 py-2 text-black hover:text-[#A11917]"><a href="index.php?act=profile">THÔNG TIN TÀI KHOẢN</a></li>
                                         <hr>
+                                        <li class="px-3 py-2 text-black hover:text-[#A11917]"><a href="index.php?act=view_bill">ĐƠN HÀNG CỦA TÔI</a></li>
+                                        <hr>
                                         <li class="px-3 py-2 text-black hover:text-[#A11917]"><a href="index.php?act=logout">ĐĂNG XUẤT</a></li>
                                     </ul>
                                 <?php
@@ -93,6 +95,7 @@
                 <li class="px-4 py-6 hover:text-[#35FC26]"><a href="index.php?act=addtocart">GIỎ HÀNG</a></li>
             </ul>
         </div>
+
     </header>
 
     <?php

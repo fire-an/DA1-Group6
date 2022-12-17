@@ -48,11 +48,12 @@
                 </div>
             <?php endif ?>
             <tr>
-                <th><input type="checkbox" id="checkBoxAll"></th>
+
                 <th>STT</th>
+                <th>Mã đơn</th>
                 <th class="idProduct">Mã Khách Hàng</th>
                 <th class="nameProduct">Tên Sản Phẩm</th>
-                <th>Số lượng</th>
+
                 <th class="nameCategory">Giá trị</th>
                 <th class="priceProduct">Tình trạng đơn hàng</th>
                 <th class="priceProduct">Ngày đặt hàng</th>
@@ -61,7 +62,7 @@
 
             <?php
             $listbill = loadAll_bill();
-           
+
             $id = 0;
             foreach ($listbill as $sp) {
                 extract($sp);
@@ -72,34 +73,37 @@
                 $ttdh = get_ttdh($sp['b_status']);
             ?>
                 <tr>
-                    <td><input type="checkbox"></td>
+
                     <td><?= $id ?></td>
+                    <td>PO-<?= $bid ?></td>
                     <td>KH00<?= $uid ?></td>
-                    <td><?php echo $sp['bname'] ?></td>
+                    <td><?php echo $bname ?></td>
+
+                    <td><?php echo $b_total_price ?> VND</td>
                     <td>
-                        <?php echo $count ?>
-                    </td>
-                    <td><?php echo $sp['b_total_price'] ?></td>
-                    <td>
-                    <?php
-                    if ($ttdh == 0) {
-                        echo $ttdh;
-                    }elseif($ttdh == 1){
-                        echo $ttdh;
-                    }elseif($ttdh == 2){
-                        echo $ttdh;
-                    }elseif($ttdh == 3){
-                        echo $ttdh;
-                    }else{
-                        echo $ttdh;
-                    }
-                    ?>
+                        <?php
+                        if ($ttdh == 0) {
+                            echo $ttdh;
+                        } elseif ($ttdh == 1) {
+                            echo $ttdh;
+                        } elseif ($ttdh == 2) {
+                            echo $ttdh;
+                        } elseif ($ttdh == 3) {
+                            echo $ttdh;
+                        } elseif ($ttdh == 4) {
+                            echo $ttdh;
+                        } elseif ($ttdh == 5) {
+                            echo $ttdh;
+                        } else {
+                            echo $ttdh;
+                        }
+                        ?>
                     </td>
                     <td><?php echo $sp['b_date'] ?></td>
                     <td>
                         <div class="btn listsp">
                             <a href="index.php?act=suabill&bid=<?= $bid ?>"><button class="repair">Sửa</button></a>
-                            <a onclick="return confirm('Bạn có chắc chắn muốn xóa <?= $pname ?> không?')" href="index.php?act=xoabill&bid=<?= $bid ?>"><button class="delete">Xóa</button></a>
+                            <!-- <a onclick="return confirm('Bạn có chắc chắn muốn xóa <?= $pname ?> không?')" href="index.php?act=xoabill&bid=<?= $bid ?>"><button class="delete">Xóa</button></a> -->
                         </div>
                     </td>
                 </tr>

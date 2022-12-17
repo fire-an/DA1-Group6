@@ -12,13 +12,13 @@ function delete_product($id)
 }
 function load_all_product($kyw, $cid)
 {
-    $sql = "SELECT * FROM product WHERE 1";
+    $sql = "SELECT * FROM product INNER JOIN category ON product.cid = category.cid WHERE 1";
     if ($kyw != "") {
         $sql .= " and pname like '%" . $kyw . "%'";
     }
 
     if ($cid > 0) {
-        $sql .= " and cid='" . $cid . "'";
+        $sql .= " and product.cid='" . $cid . "'";
     }
     $sql .= " ORDER BY pid desc";
     $p_list = pdo_query($sql);
@@ -27,7 +27,7 @@ function load_all_product($kyw, $cid)
 
 function load_new_product_home()
 {
-    $sql = "SELECT * FROM product WHERE 1 ORDER BY id desc limit 0,9";
+    $sql = "SELECT * FROM product WHERE 1 ORDER BY id desc limit 0,4";
     $listproduct = pdo_query($sql);
     return $listproduct;
 }
@@ -118,7 +118,7 @@ function load_category_name($cid)
 
 function load_all_products_home()
 {
-    $sql = "SELECT * FROM product INNER JOIN category ON product.cid = category.cid WHERE 1 ORDER BY pid desc limit 0,9";
+    $sql = "SELECT * FROM product INNER JOIN category ON product.cid = category.cid WHERE 1 ORDER BY pid desc limit 0,5";
     $p_list = pdo_query($sql);
     return $p_list;
 }

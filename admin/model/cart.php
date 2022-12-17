@@ -98,7 +98,7 @@ function bill_chi_tiet($listbill)
 function tongdonhang()
 {
     $sql = "select * from bill order by bid desc";
-        return pdo_query($sql);
+    return pdo_query($sql);
 }
 
 function insert_bill($iduser, $name, $email, $address, $tel, $pttt, $ngaydathang, $tongdonhang)
@@ -118,9 +118,10 @@ function loadOne_bill($bid)
     $bill = pdo_query_one($sql);
     return $bill;
 }
-function update_bill($status,$bid){
+function update_bill($status, $bid)
+{
     $sql = "UPDATE bill SET  b_status='" . $status . "' WHERE bid=" . $bid;
-        pdo_execute($sql);
+    pdo_execute($sql);
 }
 function loadAll_cart($idbill)
 {
@@ -128,12 +129,14 @@ function loadAll_cart($idbill)
     $bill = pdo_query($sql);
     return $bill;
 }
-function loadAll_cart_count($bid){
+function loadAll_cart_count($bid)
+{
     $sql = "select * from shopcart where bid=$bid";
     return pdo_query_one($sql);
 }
-function delete_bill($bid){
-    $sql="DELETE FROM bill WHERE bid =" .$bid;
+function delete_bill($bid)
+{
+    $sql = "DELETE FROM bill WHERE bid =" . $bid;
     pdo_execute($sql);
 }
 function loadAll_bill($kyw = "", $uid = 0)
@@ -145,7 +148,7 @@ function loadAll_bill($kyw = "", $uid = 0)
     if ($kyw != "") {
         $sql .= " AND bid like '%" . $kyw . "%'";
     }
-    $sql .= " ORDER BY uid desc";
+    $sql .= " ORDER BY bid desc";
     $listbill = pdo_query($sql);
     return $listbill;
 }
@@ -164,6 +167,12 @@ function get_ttdh($n)
             break;
         case '3':
             $tt = 'Đã giao hàng';
+            break;
+        case '4':
+            $tt = 'Đã hoàn thành';
+            break;
+        case '5':
+            $tt = 'Đã hủy đơn';
             break;
         default:
             $tt = 'Đơn hàng mới';

@@ -23,8 +23,8 @@
    <section class="section-a container mx-auto">
        <div class="grid grid-cols-3 gap-10">
            <div class="product-gallery ">
-               <div class="product-image">
-                   <img class="active w-[400px]" src="assets/uploads/<?= $image ?>" />
+               <div class="product-image mb-5">
+                   <img class="active w-[500px] h-[500px]" src="assets/uploads/<?= $image ?>" />
                </div>
                <ul class="image-list grid grid-cols-4">
                    <li class="image-item">
@@ -49,7 +49,7 @@
                <p>
                    <b>Thông tin chung:</b> <br />
                    <b>Nhà Sản Xuất:</b> <?= $brand ?><br />
-                   <b>Tình Trạng:</b> Mới 100% - Fullbox<br />
+                   <b>Tình Trạng:</b> Mới 100% - Fullbox / Còn hàng<br />
                    <b>Bảo hành:</b> <?= $warranty ?> <br />
                    <b>Led:</b> <span style="color: #c0392b">R</span>
                    <span style="color: #00ff00">G</span>

@@ -120,7 +120,7 @@ function sanpham_select_cung_loai($ma, $iddm)
 function sanpham_update($pid, $tenSp, $soluongSp, $giaSp, $imageSp, $describeSp, $giaDaGiam, $statusSp, $danhmucSp)
 {
     // $sql = "UPDATE product SET 'pname'='$tenSp','price'='$giaSp','image'='$imageSp','cid'='$danhmucSp','descriptiob'='$describeSp','discount'='$giaDaGiam','warranty'='$soluongSp','brand'='$statusSp' where pid=$id";
-    $sql = "UPDATE product SET pname='" . $tenSp . "', price='" . $giaSp . "',image='" . $imageSp . "',cid='" . $danhmucSp . "',description='" . $describeSp . "',discount='" . $giaDaGiam . "',quantity='" . $soluongSp . "',brand='" . $statusSp . "' WHERE pid=" . $pid;
+    $sql = "UPDATE product SET pname='" . $tenSp . "', price='" . $giaSp . "',image='" . $imageSp . "',cid='" . $danhmucSp . "',description='" . $describeSp . "',discount='" . $giaDaGiam . "',brand='" . $statusSp . "' WHERE pid=" . $pid;
     pdo_execute($sql);
 }
 function luotxem_update($id)
